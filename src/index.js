@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Home from './homepage'
+import Navigation from './navbar'
 
 ReactDOM.render(
-  <Home />,
+  <Navigation />,
   document.querySelector('#root')
 )
