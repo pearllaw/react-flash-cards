@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Flashcard from './app'
+import Home from './homepage'
 
 ReactDOM.render(
-  <Flashcard />,
+  <Home />,
   document.querySelector('#root')
 )
