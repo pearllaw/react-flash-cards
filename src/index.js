@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Flashcard from './form'
+import Flashcard from './app'
 
 ReactDOM.render(
   <Flashcard />,
