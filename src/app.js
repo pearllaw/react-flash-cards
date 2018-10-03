@@ -1,6 +1,8 @@
 'use strict'
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import Form from './form'
+import Home from './homepage'
+import Navigation from './navbar';
 
 export default class Flashcard extends Component{
   constructor(props) {
@@ -20,7 +22,10 @@ export default class Flashcard extends Component{
 
   render() {
     return (
-      <Form addFlashcard={this.addFlashcard}/>
+      <Fragment>
+        <Navigation />
+        <Home />
+      </Fragment>
     )
   }
 }
