@@ -15,6 +15,7 @@ function Card(props) {
           <div className="card-body">
             <p className="card-text">{props.question}</p>
             <p className="card-text">{props.answer}</p>
+            <i className="fas fa-pencil-alt"></i>
           </div>
         </div>
       </div>
