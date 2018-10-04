@@ -8,8 +8,9 @@ import hash from './hash'
 export default class Flashcard extends Component{
   constructor(props) {
     super(props)
+    const appState = JSON.parse(localStorage.getItem('flashcards')) || {}
     this.state = {
-      cards: [],
+      cards: appState.cards || [],
       view: hash.parse(location.hash)
     }
     this.addFlashcard = this.addFlashcard.bind(this)
