@@ -28,18 +28,9 @@ export default class Flashcard extends Component{
     const { cards } = this.state
     switch (path) {
       case 'new':
-        if (cards.length === 0) {
-          return <Form addFlashcard={this.addFlashcard}/>
-        }
-        else {
-          return <Deck cards={cards}/>
-        }
-      case 'cards':
-        if (cards.length !== 0) {
-          return <Form addFlashcard={this.addFlashcard}/>
-        }
+        return <Form addFlashcard={this.addFlashcard}/>
       default:
-        return <Home/>
+        return <Deck cards={cards}/>
     }
   }
 
