@@ -1,7 +1,6 @@
 'use strict'
 import React, {Component, Fragment} from 'react'
 import Form from './form'
-import Home from './homepage'
 import Navigation from './navbar'
 import Deck from './deck'
 import hash from './hash'
@@ -38,6 +37,11 @@ export default class Flashcard extends Component{
     window.onhashchange = () => {
       this.setState({ view: hash.parse(location.hash) })
     }
+
+    window.addEventListener('beforeunload', () => {
+      const { cards } = this.state
+      localStorage.setItem('flashcards', JSON.stringify({cards}))
+    })
   }
 
   render() {
