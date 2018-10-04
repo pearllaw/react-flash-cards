@@ -35,12 +35,11 @@ export default class Flashcard extends Component{
           return <Deck cards={cards}/>
         }
       case 'cards':
-        if (cards.length === 0) {
-          return <Home/>
-        }
-        else {
+        if (cards.length !== 0) {
           return <Form addFlashcard={this.addFlashcard}/>
         }
+      default:
+        return <Home/>
     }
   }
 
