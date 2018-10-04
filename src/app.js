@@ -3,6 +3,7 @@ import React, {Component, Fragment} from 'react'
 import Form from './form'
 import Home from './homepage'
 import Navigation from './navbar'
+import Deck from './deck'
 import hash from './hash'
 
 export default class Flashcard extends Component{
@@ -24,11 +25,22 @@ export default class Flashcard extends Component{
 
   renderView() {
     const { path } = this.state.view
+    const { cards } = this.state
     switch (path) {
       case 'new':
-        return <Form addFlashcard={this.addFlashcard}/>
-      default:
-        return <Home/>
+        if (cards.length === 0) {
+          return <Form addFlashcard={this.addFlashcard}/>
+        }
+        else {
+          return <Deck cards={cards}/>
+        }
+      case 'cards':
+        if (cards.length === 0) {
+          return <Home/>
+        }
+        else {
+          return <Form addFlashcard={this.addFlashcard}/>
+        }
     }
   }
 
