@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from './homepage'
 
 const styles= {
   card: {
@@ -23,12 +24,18 @@ function Card(props) {
 
 export default function Deck(props) {
   const cards = props.cards
-  return (
-    <div className="container m-1">
-      {
-        cards.map((card, key) =>
-        <Card key={key} question={card.question} answer={card.answer} />
-      )}
-    </div>
-  )
+  if (cards.length > 0) {
+    return (
+      <div className="container m-1">
+        {
+          cards.map((card, key) =>
+          <Card key={key} question={card.question} answer={card.answer} />
+        )}
+      </div>
+    )
+  }
+  else {
+    return (
+    <Home/>
+  )}
 }
