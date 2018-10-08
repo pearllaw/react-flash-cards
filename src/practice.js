@@ -5,23 +5,24 @@ export default class Practice extends Component {
     super(props)
     this.state = {
       currentIndex: 0,
-      showAnswer: 'hidden'
+      showAnswer: false
     }
-    this.showAnswer = this.showAnswer.bind(this)
+    this.toggleAnswer = this.toggleAnswer.bind(this)
   }
 
-  showAnswer() {
-    this.setState({ showAnswer: ''})
+  toggleAnswer() {
+    this.setState({ showAnswer: !this.state.showAnswer})
   }
 
   render() {
     const { cards } = this.props
-    const { currentIndex } = this.state
+    const { currentIndex, showAnswer } = this.state
       return (
         <div className="card w-75">
           <div className="card-body border">
             <h5 className="card-title">{cards[currentIndex].question}</h5>
-            <i className="fas fa-chevron-circle-right" onClick={this.showAnswer}> Show Answer</i>
+            <i className={showAnswer === false ? "fas fa-chevron-circle-right" : "fas fa-chevron-circle-down"} onClick={this.toggleAnswer}> Show Answer</i>
+            <p className="card-text" style={{visibility: showAnswer === false ? 'hidden' : ''}}>{cards[currentIndex].answer}</p>
           </div>
         </div>
       )
