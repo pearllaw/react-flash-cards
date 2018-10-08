@@ -7,30 +7,32 @@ const styles= {
   }
 }
 
-function Card(props) {
+function Card({question, answer, cardId}) {
+  const href = `#edit?cardId=${cardId}`
   return (
-    <div className="row justify-content-start">
-      <div className="col-sm-3 m-2">
+    <div className="col-md-3 m-3">
         <div className="card" style={styles.card}>
           <div className="card-body">
-            <p className="card-text">{props.question}</p>
-            <p className="card-text">{props.answer}</p>
+            <p className="card-text">{question}</p>
+            <p className="card-text">{answer}</p>
+            <div className="text-right"><a href={href}><i className="fas fa-pencil-alt"></i></a></div>
           </div>
-        </div>
       </div>
     </div>
   )
 }
 
-export default function Deck(props) {
-  const cards = props.cards
+export default function Deck({cards}) {
   if (cards.length > 0) {
     return (
       <div className="container m-1">
+        <div className="row">
         {
-          cards.map((card, key) =>
-          <Card key={key} question={card.question} answer={card.answer} />
-        )}
+          cards.map(card =>
+            <Card key={card.cardId} cardId={card.cardId} question={card.question} answer={card.answer} />
+          )
+        }
+        </div>
       </div>
     )
   }
