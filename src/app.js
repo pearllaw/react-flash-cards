@@ -3,6 +3,7 @@ import Navigation from './navbar'
 import Deck from './deck'
 import Form from './form'
 import Edit from './edit-card'
+import Practice from './practice'
 import hash from './hash'
 
 export default class Flashcard extends Component{
@@ -60,7 +61,9 @@ export default class Flashcard extends Component{
           card.cardId === parseInt(params.cardId, 10)
         )
         return <Edit editedCard={editedCard} editFlashcard={this.editFlashcard}/>
-      default:
+      case 'practice':
+        return <Practice cards={cards}/>
+        default:
         return <Deck cards={cards} removeFlashcard={this.removeFlashcard}/>
     }
   }
