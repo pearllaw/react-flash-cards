@@ -15,7 +15,11 @@ function Card({question, answer, cardId}) {
           <div className="card-body">
             <p className="card-text">{question}</p>
             <p className="card-text">{answer}</p>
-            <div className="text-right"><a href={href}><i className="fas fa-pencil-alt"></i></a></div>
+            <div className="text-right">
+              <a href={href}><i className="fas fa-pencil-alt fa-fw"></i></a>&nbsp;&nbsp;
+              <a href='#'><i class="far fa-trash-alt fa-fw"></i></a>
+            </div>
+
           </div>
       </div>
     </div>
