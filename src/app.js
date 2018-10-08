@@ -33,11 +33,12 @@ export default class Flashcard extends Component{
     const { cards } = this.state
     const { params } = this.state.view
     const editedCard = cards.map(card => {
-      card.cardId === parseInt(params.cardId, 10)
+      return card.cardId === parseInt(params.cardId, 10)
         ? selectedCard
         : card
     })
     this.setState({cards: editedCard})
+    location.hash = 'cards'
   }
 
   renderView() {

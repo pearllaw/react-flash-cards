@@ -19,7 +19,7 @@ export default class Edit extends Component {
     const flashcard = {
       question: edit.get('question'),
       answer: edit.get('answer'),
-      cardId: parseInt(this.props.editedCard.cardId, 10)
+      cardId: this.props.editedCard.cardId
     }
     this.props.editFlashcard(flashcard)
   }

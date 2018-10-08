@@ -28,8 +28,8 @@ export default function Deck({cards}) {
       <div className="container m-1">
         <div className="row">
         {
-          cards.map((card, index) =>
-            <Card key={index} cardId={card.cardId} question={card.question} answer={card.answer} />
+          cards.map(card =>
+            <Card key={card.cardId} cardId={card.cardId} question={card.question} answer={card.answer} />
           )
         }
         </div>
