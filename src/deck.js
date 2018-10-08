@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Home from './homepage'
 
 const styles= {
@@ -7,7 +7,7 @@ const styles= {
   }
 }
 
-function Card({question, answer, cardId}) {
+function Card({question, answer, cardId, onClick}) {
   const href = `#edit?cardId=${cardId}`
   return (
     <div className="col-md-3 m-3">
@@ -17,31 +17,43 @@ function Card({question, answer, cardId}) {
             <p className="card-text">{answer}</p>
             <div className="text-right">
               <a href={href}><i className="fas fa-pencil-alt fa-fw"></i></a>&nbsp;&nbsp;
-              <a href='#'><i class="far fa-trash-alt fa-fw"></i></a>
+              <a href="#cards" onClick={() => onClick(cardId)}><i className="far fa-trash-alt fa-fw"></i></a>
             </div>
-
           </div>
       </div>
     </div>
   )
 }
 
-export default function Deck({cards}) {
-  if (cards.length > 0) {
-    return (
-      <div className="container m-1">
-        <div className="row">
-        {
-          cards.map(card =>
-            <Card key={card.cardId} cardId={card.cardId} question={card.question} answer={card.answer} />
-          )
-        }
-        </div>
-      </div>
-    )
+export default class Deck extends Component {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
   }
-  else {
-    return (
-    <Home/>
-  )}
+
+  handleClick(selectedCard) {
+    this.props.removeFlashcard(selectedCard)
+  }
+
+  render() {
+    const { cards } = this.props
+    if (cards.length > 0) {
+      return (
+        <div className="container m-1">
+          <div className="row">
+          {
+            cards.map(card =>
+              <Card key={card.cardId} cardId={card.cardId} question={card.question} answer={card.answer}
+                onClick={this.handleClick}/>
+            )
+          }
+          </div>
+        </div>
+      )
+    }
+    else {
+      return (
+      <Home/>
+    )}
+  }
 }

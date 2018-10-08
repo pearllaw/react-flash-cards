@@ -17,6 +17,7 @@ export default class Flashcard extends Component{
     }
     this.addFlashcard = this.addFlashcard.bind(this)
     this.editFlashcard = this.editFlashcard.bind(this)
+    this.removeFlashcard = this.removeFlashcard.bind(this)
   }
 
   addFlashcard(newCard) {
@@ -41,6 +42,13 @@ export default class Flashcard extends Component{
     location.hash = 'cards'
   }
 
+  removeFlashcard(cardId) {
+    const { cards } = this.state
+    const updatedCards = cards.filter(card =>
+      card.cardId !== cardId)
+    this.setState({cards: updatedCards})
+  }
+
   renderView() {
     const { path, params } = this.state.view
     const { cards, cardId } = this.state
@@ -53,7 +61,7 @@ export default class Flashcard extends Component{
         )
         return <Edit editedCard={editedCard} editFlashcard={this.editFlashcard}/>
       default:
-        return <Deck cards={cards}/>
+        return <Deck cards={cards} removeFlashcard={this.removeFlashcard}/>
     }
   }
 
