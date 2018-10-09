@@ -24,6 +24,8 @@ export default class Navigation extends Component {
             id="cards" href="#cards" onClick={this.handleClick}>Cards</a>
           <a className={activeLink === 'new' ? "nav-item nav-link active" : "nav-item nav-link"}
             id="new" href="#new" onClick={this.handleClick}>New</a>
+          <a className={activeLink === 'practice' ? "nav-item nav-link active" : "nav-item nav-link"}
+            id="practice" href="#practice" onClick={this.handleClick}>Practice</a>
         </div>
       </div>
     </nav>
