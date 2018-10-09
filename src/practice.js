@@ -1,19 +1,10 @@
 import React, {Component} from 'react'
 
-const styles={
-  container: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%,-50%)'
-  },
-  rightArrow: {
-    position: 'absolute',
-    top: '50px',
-    left: '10px'
-  },
-  leftArrow: {
-    position: 'absolute',
+const styles = {
+  progress: {
+    height: '30px',
+    width: '845px',
+    marginLeft: '425px'
   }
 }
 
@@ -53,8 +44,12 @@ export default class Practice extends Component {
     const { cards } = this.props
     const { currentIndex, showAnswer } = this.state
       return (
+        <div>
+        <div className="progress d-flex justify-content-center mt-5 " style={styles.progress}>
+            <div className="progress-bar" role="progressbar"></div>
+        </div>
         <div className="d-flex justify-content-center mt-5">
-          <span><i className="fas fa-chevron-left fa-3x mr-5 mt-4" onClick={this.handlePrev}></i></span>
+        <i className="fas fa-chevron-left fa-3x mr-5 mt-4" onClick={this.handlePrev}></i>
             <div className="card w-50">
               <div className="card-body border">
                 <h5 className="card-title">{cards[currentIndex].question}</h5>
@@ -63,6 +58,7 @@ export default class Practice extends Component {
               </div>
             </div>
           <span><i className="fas fa-chevron-right fa-3x ml-5 mt-4" onClick={this.handleNext}></i></span>
+        </div>
         </div>
       )
   }
