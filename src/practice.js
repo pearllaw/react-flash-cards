@@ -28,7 +28,7 @@ export default class Practice extends Component {
     const { cards } = this.props
     this.setState({
       currentIndex: currentIndex ? currentIndex - 1 : cards.length - 1,
-      width: (currentIndex - 1) / (cards.length) * 100 + '%'
+      width: Math.floor((currentIndex - 1) / (cards.length) * 100) + '%'
     })
   }
 
@@ -37,7 +37,7 @@ export default class Practice extends Component {
     const { cards } = this.props
     this.setState({
       currentIndex: currentIndex < cards.length - 1 ? currentIndex + 1 : 0,
-      width: (currentIndex + 1) / (cards.length) * 100 + '%'
+      width: Math.floor((currentIndex + 1) / (cards.length) * 100) + '%'
     })
   }
 
