@@ -62,8 +62,8 @@ export default class Flashcard extends Component{
         )
         return <Edit editedCard={editedCard} editFlashcard={this.editFlashcard}/>
       case 'practice':
-        return <Practice cards={cards}/>
-        default:
+        cards.length > 0 ? <Practice cards={cards}/> : <Deck cards={cards}/>
+      default:
         return <Deck cards={cards} removeFlashcard={this.removeFlashcard}/>
     }
   }
