@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 
 const styles = {
   progress: {
-    height: '30px',
-    marginLeft: '422px'
+    height: '30px'
   }
 }
 
@@ -48,8 +47,10 @@ export default class Practice extends Component {
       return (
         <div>
         <h3 className="text-center mt-5">Practice Your Flashcards!</h3>
-        <div className="progress w-50 mt-5" style={styles.progress}>
+        <div className="d-flex justify-content-center">
+          <div className="progress w-50 mt-5" style={styles.progress}>
             <div className="progress-bar progress-bar-striped bg-success" role="progressbar" style={{width}} aria-valuemin="0" aria-valuemax="100">{width}</div>
+          </div>
         </div>
         <div className="d-flex justify-content-center mt-5">
         <i className="fas fa-chevron-left fa-3x mr-5 mt-4" onClick={this.handlePrev}></i>
