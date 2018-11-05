@@ -1,7 +1,7 @@
 # React Flash Cards
 A React.js application for self-learners who want to expand their knowledge.
 
-#### [Live Demo](...)
+#### [Live Demo](https://pearllaw.github.io/react-flash-cards/)
 
 ### Add a flashcard to your deck
 ![add-a-flashcard](https://user-images.githubusercontent.com/35009493/48028688-05017a80-e101-11e8-8730-497ca63d41ab.gif)
