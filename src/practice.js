@@ -13,7 +13,7 @@ export default class Practice extends Component {
     this.state = {
       currentIndex: 0,
       showAnswer: false,
-      width: '0%'
+      width: 0 + '%'
     }
     this.toggleAnswer = this.toggleAnswer.bind(this)
     this.handlePrev = this.handlePrev.bind(this)
@@ -29,7 +29,7 @@ export default class Practice extends Component {
     const { cards } = this.props
     this.setState({
       currentIndex: currentIndex ? currentIndex - 1 : cards.length - 1,
-      width: (currentIndex - 1) / (cards.length) * 100 + '%'
+      width: Math.floor((currentIndex - 1) / (cards.length) * 100) + '%'
     })
   }
 
@@ -38,7 +38,7 @@ export default class Practice extends Component {
     const { cards } = this.props
     this.setState({
       currentIndex: currentIndex < cards.length - 1 ? currentIndex + 1 : 0,
-      width: (currentIndex + 1) / (cards.length) * 100 + '%'
+      width: Math.floor((currentIndex + 1) / (cards.length) * 100) + '%'
     })
   }
 

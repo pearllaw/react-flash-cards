@@ -7,9 +7,6 @@
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "10.0.0"
-  },
   "lint-staged": {
     "*.html": [
       "htmlhint"
@@ -50,14 +47,5 @@
     "webpack": "4.20.1",
     "webpack-cli": "3.1.1",
     "webpack-dev-server": "3.1.9"
-  },
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pearllaw/react-flash-cards.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pearllaw/react-flash-cards/issues"
-  },
-  "homepage": "https://pearllaw.github.io/react-flash-cards/"
+  }
 }
