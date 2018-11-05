@@ -1,5 +1,6 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   devtool: 'source-map',
   mode: process.env.NODE_ENV || 'development',
@@ -18,13 +19,6 @@ module.exports = {
             presets: ['@babel/preset-react']
           }
         }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
       }
     ]
   },
@@ -37,7 +31,7 @@ module.exports = {
     ])
   ],
   devServer: {
-    port: process.env.PORT || 3000,
+    port: 3000,
     open: true,
     stats: 'minimal',
     contentBase: path.join(__dirname, '/public')
